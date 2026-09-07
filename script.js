@@ -1,24 +1,13 @@
-/* ==========================================================================
-   ELVEELIA MEDSPA — SCRIPT.JS
-   ========================================================================== */
 
-/**
- * ─────────────────────────────────────────────
- *  BUSINESS CONFIG — edit everything here
- * ─────────────────────────────────────────────
- * This is the single place to update contact details. Every phone,
- * WhatsApp, email, Instagram and TikTok link on the page is generated
- * from these values at page load.
- */
 const BUSINESS = {
   name: "Elveelia Medspa",
   phoneDisplay: "0548179233",
-  phoneDial: "0548179233", // used for tel: link as typed locally
-  whatsappNumberIntl: "233548179233", // Ghana country code (233) + local number without leading 0
+  phoneDial: "0548179233", 
+  whatsappNumberIntl: "233548179233", 
   whatsappMessage: "Hello Elveelia Medspa, I would like to book an appointment.",
   email: "Elveeliabeauty@gmail.com",
-  instagramHandle: "elveelia_medspa", // no @, no URL — just the username
-  tiktokHandle: "elveelia_medspa", // no @, no URL — just the username
+  instagramHandle: "elveelia_medspa", // 
+  tiktokHandle: "elveelia_medspa",
   address: "Aviation Road, Accra, Ghana",
   hours: "8:30 AM – 8:00 PM",
 };
@@ -44,10 +33,6 @@ function buildTiktokLink() {
   return `https://www.tiktok.com/@${BUSINESS.tiktokHandle}`;
 }
 
-/**
- * Populate every element that displays or links to business info,
- * using the BUSINESS config above as the single source of truth.
- */
 function populateBusinessInfo() {
   // Floating WhatsApp button + all WhatsApp CTAs
   document.querySelectorAll("#whatsappFloat, #whatsappUsBtn, #whatsappInlineLink").forEach((el) => {
@@ -90,9 +75,7 @@ function populateBusinessInfo() {
   }
 }
 
-/* ==========================================================================
-   NAVIGATION — sticky shadow + mobile menu
-   ========================================================================== */
+/* NAVIGATION — sticky shadow + mobile menu */
 function initNavigation() {
   const header = document.getElementById("siteHeader");
   const onScroll = () => {
@@ -280,14 +263,7 @@ function initAppointmentForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    /**
-     * NOTE FOR DEVELOPERS:
-     * There is no backend connected yet. This only shows a confirmation
-     * message locally — it does NOT send the appointment anywhere.
-     * To wire this up to something real, send the form values below to
-     * an email service (e.g. Formspree, EmailJS), a booking platform,
-     * or your own backend endpoint here.
-     */
+  
     const submission = {
       fullName: fields.fullName.el.value.trim(),
       phone: fields.phone.el.value.trim(),
@@ -311,9 +287,7 @@ function initAppointmentForm() {
   });
 }
 
-/* ==========================================================================
-   INIT
-   ========================================================================== */
+/* INIT */
 document.addEventListener("DOMContentLoaded", () => {
   populateBusinessInfo();
   initNavigation();
