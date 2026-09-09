@@ -898,12 +898,13 @@ section {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px;
-    background: #ffffff;
-    border: 1px solid rgba(91, 63, 48, 0.12);
+    padding: 22px;
+    background: #f5ede3;
+    border: 1px solid rgba(91, 63, 48, 0.15);
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(50, 35, 25, 0.08);
+    box-shadow: 0 8px 24px rgba(50, 35, 25, 0.06);
 }
+
 
 /* QR code */
 .qr-code {
