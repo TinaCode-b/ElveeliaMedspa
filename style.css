@@ -689,6 +689,20 @@ section {
 .gallery-item:hover .gallery-caption {
   opacity: 1;
 }
+.gallery-video {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #000;
+  aspect-ratio: 9 / 16;
+}
+
+.gallery-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 
 /* Lightbox */
 .lightbox {
