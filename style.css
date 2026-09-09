@@ -866,6 +866,92 @@ section {
   font-weight: 600;
   border-bottom: 1px solid rgba(42, 34, 29, 0.35);
 }
+/* =========================================
+   PRICE LIST QR CODE
+   ========================================= */
+
+.price-list-qr {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.price-list-qr h2 {
+    margin: 10px 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    color: #211a17;
+}
+
+.price-list-qr p {
+    margin: 0 auto 24px;
+    max-width: 520px;
+    color: #665b55;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* QR card */
+.qr-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(91, 63, 48, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(50, 35, 25, 0.08);
+}
+
+/* QR code */
+.qr-code {
+    width: 190px;
+    height: 190px;
+    display: block;
+}
+
+/* Small instruction */
+.qr-instruction {
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
+    color: #806f65 !important;
+}
+
+/* Direct link */
+.price-list-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #5b3f30;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #5b3f30;
+    padding-bottom: 3px;
+    transition: opacity 0.2s ease;
+}
+
+.price-list-link:hover {
+    opacity: 0.65;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .price-list-qr {
+        padding: 60px 20px;
+    }
+
+    .qr-card {
+        padding: 18px;
+    }
+
+    .qr-code {
+        width: 160px;
+        height: 160px;
+    }
+}
 
 /* ==========================================================================
    CONTACT & LOCATION
