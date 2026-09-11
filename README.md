@@ -26,6 +26,10 @@ A modern, elegant, and responsive website for **Elveelia Medspa**, designed to s
 elveelia-medspa-clean/
 │
 ├── index.html
+├── gallery.html
+├── pricelist.html
+├── contact.html
+├── services.html
 ├── style.css
 ├── script.js
 └── README.md
