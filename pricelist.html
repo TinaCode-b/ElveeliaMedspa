@@ -1,119 +1,602 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Price List | Elveelia Medspa</title>
+<meta name="description" content="Full price list for Elveelia Medspa — facials, massage, microblading, pedicure, lashes, body sculpting, waxing and more on Aviation Road Adenta, Accra, Ghana." />
+<meta name="theme-color" content="#fbf6ef" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 
-    <title>Elveelia Medspa | Price List</title>
+<style>
+  .pl-header {
+    padding: 16px 0;
+  }
+  .pl-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pl-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .pl-logo span {
+    display: block;
+    color: var(--rose-deep);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  .pl-hero {
+    position: relative;
+    padding: 90px 24px;
+    text-align: center;
+    color: var(--ivory);
+    overflow: hidden;
+  }
+  .pl-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .pl-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(42,34,29,0.62);
+    z-index: 0;
+  }
+  .pl-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .pl-hero p.eyebrow { color: var(--gold-soft); }
+  .pl-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+  .pl-hero p.sub {
+    margin-top: 14px;
+    color: rgba(251,246,239,0.85);
+  }
 
-        body {
-            margin: 0;
-            padding: 30px 20px;
-            background: #f5ede3;
-            font-family: Arial, sans-serif;
-            color: #3b2a23;
-        }
+  .pl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  padding: 64px 0 90px;
+  align-items: start;
+}
 
-        .price-page {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
+  .pl-card {
+    background-color: var(--ivory);
+    border: 1px solid rgba(42,34,29,0.1);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+  }
 
-        .brand {
-            margin-bottom: 25px;
-        }
+  .pl-card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 24px;
+    background-color: var(--sand);
+    text-align: left;
+  }
+  .pl-card-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--espresso);
+  }
+  .pl-card-header svg {
+    color: var(--rose-deep);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .pl-card.is-open .pl-card-header svg {
+    transform: rotate(180deg);
+  }
 
-        .brand h1 {
-            margin: 0;
-            font-family: Georgia, serif;
-            font-size: 28px;
-            letter-spacing: 4px;
-            color: #4d3025;
-        }
+   .pl-card-body {
+  display: grid;
+  grid-template-rows: minmax(0, 0fr);
+  transition: grid-template-rows 0.3s ease;
+}
 
-        .brand p {
-            margin: 4px 0 0;
-            font-size: 12px;
-            letter-spacing: 3px;
-            color: #a16f5c;
-        }
+.pl-card.is-open .pl-card-body {
+  grid-template-rows: minmax(0, 1fr);
+}
+  .pl-card-body-inner {
+    overflow: hidden;
+  }
+  .pl-list {
+    padding: 8px 24px 24px;
+  }
+  .pl-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(42,34,29,0.12);
+    font-size: 0.95rem;
+  }
+  .pl-list li:last-child { border-bottom: none; }
+  .pl-list .pl-name { color: var(--espresso-soft); }
+  .pl-list .pl-price {
+    color: var(--gold);
+    font-weight: 600;
+    white-space: nowrap;
+  }
 
-        .price-list-container {
-            background: white;
-            padding: 12px;
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(60, 40, 30, 0.10);
-        }
+  .pl-note {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 8px;
+    color: var(--espresso-soft);
+    font-size: 0.92rem;
+  }
 
-        .price-list-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 11px 22px;
-            border-radius: 30px;
-            background: #2d2521;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.8;
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 10px;
-            }
-
-            .brand h1 {
-                font-size: 22px;
-                letter-spacing: 3px;
-            }
-
-            .price-list-container {
-                padding: 5px;
-                border-radius: 10px;
-            }
-        }
-    </style>
+  .pl-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 90px;
+  }
+</style>
 </head>
-
 <body>
 
-    <main class="price-page">
+<!-- ============================================================
+     HEADER / NAVIGATION
+     ============================================================ -->
 
-        <div class="brand">
-            <h1>ELVEELIA</h1>
-            <p>MEDSPA</p>
-        </div>
+<header class="site-header" id="siteHeader">
 
-        <div class="price-list-container">
-            <img
-                src="assests/images/elveeliapricelist.jpeg"
-                alt="Elveelia Medspa Price List"
-            >
-        </div>
+  <div class="container nav-inner">
 
-        <a href="index.html" class="back-link">
-            Back to Website
-        </a>
+    <a href="index.html#home" class="logo">
+      ELVEELIA<span>MEDSPA</span>
+    </a>
 
-    </main>
+    <nav>
+      <ul class="nav-links">
 
+        <li>
+          <a href="index.html#home">Home</a>
+        </li>
+
+        <li>
+          <a href="index.html#about">About</a>
+        </li>
+
+        <li>
+          <a href="services.html">Services</a>
+        </li>
+
+        <li>
+          <a href="gallery.html">Gallery</a>
+        </li>
+
+        <li>
+          <a href="index.html#reviews">Reviews</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+        <li>
+          <a href="pricelist.html">Prices</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <a
+      href="index.html#appointment"
+      class="btn btn-primary nav-cta"
+    >
+      Book an Appointment
+    </a>
+
+    <!-- MOBILE HAMBURGER -->
+
+    <button
+      class="hamburger"
+      id="hamburgerBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- ============================================================
+     MOBILE MENU
+     ============================================================ -->
+
+<div class="overlay" id="menuOverlay"></div>
+
+<aside
+  class="mobile-menu"
+  id="mobileMenu"
+  aria-hidden="true"
+>
+
+  <button
+    class="mobile-menu-close"
+    id="mobileMenuClose"
+    aria-label="Close menu"
+  >
+    &times;
+  </button>
+
+  <ul>
+
+    <li>
+      <a href="index.html#home" class="mobile-link">
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#about" class="mobile-link">
+        About
+      </a>
+    </li>
+
+    <li>
+      <a href="services.html" class="mobile-link">
+        Services
+      </a>
+    </li>
+
+    <li>
+      <a href="gallery.html" class="mobile-link">
+        Gallery
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#reviews" class="mobile-link">
+        Reviews
+      </a>
+    </li>
+
+    <li>
+      <a href="contact.html" class="mobile-link">
+        Contact
+      </a>
+    </li>
+
+    <li>
+      <a href="pricelist.html" class="mobile-link">
+        Prices
+      </a>
+    </li>
+
+  </ul>
+
+  <a
+    href="index.html#appointment"
+    class="btn btn-primary btn-block mobile-link"
+  >
+    Book an Appointment
+  </a>
+
+  <p class="mobile-menu-address">
+    Aviation Road Adenta, Accra, Ghana<br />
+    Open 8:30 AM – 8:00 PM
+  </p>
+
+</aside>
+
+<section class="pl-hero">
+  <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1800&q=80" alt="Close-up of a skin treatment being applied at Elveelia Medspa" />
+  <div class="pl-hero-content">
+    <p class="eyebrow">Elveelia Medspa</p>
+    <h1>Our Price Guide</h1>
+    <p class="sub">Aviation Road, Accra, Ghana &nbsp;•&nbsp; Open 8:30 AM – 8:00 PM</p>
+  </div>
+</section>
+
+<div class="container">
+  <p class="pl-note" style="margin-top:40px;">
+    All prices are in Ghana Cedis (GH₵).
+  </p>
+
+  <div class="pl-grid" id="priceGrid">
+
+    <div class="pl-card is-open">
+      <button class="pl-card-header">
+        <h2>Facial</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Hydra Facial</span><span class="pl-price">GH₵400</span></li>
+          <li><span class="pl-name">VIP Facial</span><span class="pl-price">GH₵600</span></li>
+          <li><span class="pl-name">Glow Facial</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Deep Cleansing</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Carbon Facial</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Dermaplaning</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Skin Tag / Mole Remover</span><span class="pl-price">GH₵350</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Massage</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Swedish Massage</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Hot Stone Massage</span><span class="pl-price">GH₵400</span></li>
+          <li><span class="pl-name">Deep Tissue</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Back and Neck</span><span class="pl-price">GH₵220</span></li>
+          <li><span class="pl-name">Reflexology</span><span class="pl-price">GH₵150</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Microblading</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Microblading</span><span class="pl-price">GH₵600</span></li>
+          <li><span class="pl-name">Ombre Brows</span><span class="pl-price">GH₵700</span></li>
+          <li><span class="pl-name">Micro Shading</span><span class="pl-price">GH₵600</span></li>
+          <li><span class="pl-name">Brow Trimming</span><span class="pl-price">GH₵30</span></li>
+          <li><span class="pl-name">Tint Brow</span><span class="pl-price">GH₵180</span></li>
+          <li><span class="pl-name">Brow Lamination</span><span class="pl-price">GH₵200</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Pedicure &amp; Manicure</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Organic Pedicure</span><span class="pl-price">GH₵200</span></li>
+          <li><span class="pl-name">Pristine Products</span><span class="pl-price">GH₵180</span></li>
+          <li><span class="pl-name">Toe Tidy</span><span class="pl-price">GH₵70</span></li>
+          <li><span class="pl-name">Nail Tidy</span><span class="pl-price">GH₵50</span></li>
+          <li><span class="pl-name">Jelly Pedicure</span><span class="pl-price">GH₵200</span></li>
+          <li><span class="pl-name">Manicure</span><span class="pl-price">GH₵70</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Body Polish</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Whitening Body Polish</span><span class="pl-price">GH₵400</span></li>
+          <li><span class="pl-name">Rejuvenating Body Polish</span><span class="pl-price">GH₵350</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Mink Lash</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Classic</span><span class="pl-price">GH₵200</span></li>
+          <li><span class="pl-name">Classic Cat Eye</span><span class="pl-price">GH₵220</span></li>
+          <li><span class="pl-name">Hybrid</span><span class="pl-price">GH₵250</span></li>
+          <li><span class="pl-name">Hybrid Cat Eye</span><span class="pl-price">GH₵270</span></li>
+          <li><span class="pl-name">Volume</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Volume Cat Eye</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Mega Volume</span><span class="pl-price">GH₵380</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Piercing</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Nose Piercing</span><span class="pl-price">GH₵150</span></li>
+          <li><span class="pl-name">Navel Piercing</span><span class="pl-price">GH₵200–250</span></li>
+          <li><span class="pl-name">Ear Piercing</span><span class="pl-price">GH₵180</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Body Sculpting</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Fat Freezing</span><span class="pl-price">GH₵700</span></li>
+          <li><span class="pl-name">Wood Therapy</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Lipo Cavitation</span><span class="pl-price">GH₵300</span></li>
+          <li><span class="pl-name">Double Chin</span><span class="pl-price">GH₵200</span></li>
+          <li><span class="pl-name">Fat Dissolving</span><span class="pl-price">GH₵1,100</span></li>
+          <li><span class="pl-name">Butt Enlargement Therapy</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Breast Enlargement</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Lymphatic Drainage</span><span class="pl-price">GH₵350</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Waxing</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Arm Wax</span><span class="pl-price">GH₵120</span></li>
+          <li><span class="pl-name">Chin Wax</span><span class="pl-price">GH₵90</span></li>
+          <li><span class="pl-name">Brazilian Wax</span><span class="pl-price">GH₵350</span></li>
+          <li><span class="pl-name">Full Body Wax</span><span class="pl-price">GH₵450</span></li>
+          <li><span class="pl-name">Leg Wax</span><span class="pl-price">GH₵250</span></li>
+          <li><span class="pl-name">Hand Wax</span><span class="pl-price">GH₵250</span></li>
+          <li><span class="pl-name">Face Wax</span><span class="pl-price">GH₵120</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="pl-card">
+      <button class="pl-card-header">
+        <h2>Laser Treatment</h2>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="pl-card-body"><div class="pl-card-body-inner">
+        <ul class="pl-list">
+          <li><span class="pl-name">Tattoo &amp; Scar Removal</span><span class="pl-price">GH₵300–1,000</span></li>
+        </ul>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="pl-actions">
+    <a href="index.html#appointment" class="btn btn-primary">Book an Appointment</a>
+    <a href="index.html" class="btn btn-outline">Back to Home</a>
+  </div>
+</div>
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <p class="footer-brand">ELVEELIA MEDSPA</p>
+      <p class="footer-tagline">Beauty • Wellness • Self-Care</p>
+      <p>Aviation Road Adenta, Accra, Ghana<br />8:30 AM – 8:00 PM</p>
+   <li class="footer-social-item">
+  <!-- Phone icon -->
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+             19.79 19.79 0 0 1-8.63-3.07
+             19.5 19.5 0 0 1-6-6
+             19.79 19.79 0 0 1-3.07-8.67
+             A2 2 0 0 1 4.11 2h3
+             a2 2 0 0 1 2 1.72
+             12.84 12.84 0 0 0 .7 2.81
+             2 2 0 0 1-.45 2.11L8.09 9.91
+             a16 16 0 0 0 6 6l1.27-1.27
+             a2 2 0 0 1 2.11-.45
+             12.84 12.84 0 0 0 2.81.7
+             A2 2 0 0 1 22 16.92z"/>
+  </svg>
+
+  <a href="tel:0548179233">0548179233</a>
+</li>
+
+<li class="footer-social-item">
+  <!-- Mail icon -->
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="m3 7 9 6 9-6"/>
+  </svg>
+
+  <a href="mailto:Elveeliabeauty@gmail.com">
+    Elveeliabeauty@gmail.com
+  </a>
+</li>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="pricelist.html">Prices</a></li>
+        <li><a href="index.html#appointment">Book Appointment</a></li>
+      </ul>
+    </div>
+
+<div class="footer-col">
+  <h4>Social</h4>
+  <ul>
+    <li class="footer-social-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"/>
+      </svg>
+
+      <a href="https://www.instagram.com/elveelia_medspa/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Instagram: @elveelia_medspa
+      </a>
+    </li>
+
+    <li class="footer-social-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+      </svg>
+
+      <a href="https://www.tiktok.com/@elveelia_medspa"
+         target="_blank"
+         rel="noopener noreferrer">
+        TikTok: @elveelia_medspa
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="footer-bottom">&copy; 2026 Elveelia Medspa. All rights reserved.</div>
+</footer>
+
+<script>
+  document.querySelectorAll(".pl-card-header").forEach((header) => {
+    header.addEventListener("click", () => {
+      header.closest(".pl-card").classList.toggle("is-open");
+    });
+  });
+</script>
+<script src="script.js"></script>
 </body>
 </html>

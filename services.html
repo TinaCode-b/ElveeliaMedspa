@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Services | Elveelia Medspa</title>
+<meta name="description" content="Explore all treatments at Elveelia Medspa — massage, facial, waxing, pedicure, manicure, lashes, microblading, piercing, body sculpting and laser treatment in Accra, Ghana." />
+<meta name="theme-color" content="#fbf6ef" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  .pl-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--ivory);
+    border-bottom: 1px solid rgba(42,34,29,0.08);
+    padding: 16px 0;
+  }
+  .pl-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pl-logo {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .pl-logo span {
+    display: block;
+    color: var(--rose-deep);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  .pl-hero {
+    position: relative;
+    padding: 90px 24px;
+    text-align: center;
+    color: var(--ivory);
+    overflow: hidden;
+  }
+  .pl-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .pl-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(42,34,29,0.62);
+    z-index: 0;
+  }
+  .pl-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .pl-hero p.eyebrow { color: var(--gold-soft); }
+  .pl-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+  }
+  .pl-hero p.sub {
+    margin-top: 14px;
+    color: rgba(251,246,239,0.85);
+  }
+
+  .services-page-body {
+    padding: 64px 0 30px;
+  }
+
+  .pl-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0 90px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAVIGATION
+     ============================================================ -->
+
+<header class="site-header" id="siteHeader">
+
+  <div class="container nav-inner">
+
+    <a href="index.html#home" class="logo">
+      ELVEELIA<span>MEDSPA</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html#home">Home</a>
+        </li>
+
+        <li>
+          <a href="index.html#about">About</a>
+        </li>
+
+        <li>
+          <a href="services.html">Services</a>
+        </li>
+
+        <li>
+          <a href="gallery.html">Gallery</a>
+        </li>
+
+        <li>
+          <a href="index.html#reviews">Reviews</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+        <li>
+          <a href="pricelist.html">Prices</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <a
+      href="index.html#appointment"
+      class="btn btn-primary nav-cta"
+    >
+      Book an Appointment
+    </a>
+
+    <button
+      class="hamburger"
+      id="hamburgerBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- MOBILE MENU -->
+
+<div class="overlay" id="menuOverlay"></div>
+
+<aside
+  class="mobile-menu"
+  id="mobileMenu"
+  aria-hidden="true"
+>
+
+  <button
+    class="mobile-menu-close"
+    id="mobileMenuClose"
+    aria-label="Close menu"
+  >
+    &times;
+  </button>
+
+  <ul>
+
+    <li>
+      <a href="index.html#home" class="mobile-link">
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#about" class="mobile-link">
+        About
+      </a>
+    </li>
+
+    <li>
+      <a href="services.html" class="mobile-link">
+        Services
+      </a>
+    </li>
+
+    <li>
+      <a href="gallery.html" class="mobile-link">
+        Gallery
+      </a>
+    </li>
+
+    <li>
+      <a href="index.html#reviews" class="mobile-link">
+        Reviews
+      </a>
+    </li>
+
+    <li>
+      <a href="contact.html" class="mobile-link">
+        Contact
+      </a>
+    </li>
+
+    <li>
+      <a href="pricelist.html" class="mobile-link">
+        Prices
+      </a>
+    </li>
+
+  </ul>
+
+  <a
+    href="index.html#appointment"
+    class="btn btn-primary btn-block mobile-link"
+  >
+    Book an Appointment
+  </a>
+
+  <p class="mobile-menu-address">
+    Aviation Road Adenta, Accra, Ghana<br />
+    Open 8:30 AM – 8:00 PM
+  </p>
+
+</aside>
+
+<section class="pl-hero">
+  <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1800&q=80" alt="Hot stone massage treatment set beside fresh flowers" />
+  <div class="pl-hero-content">
+    <p class="eyebrow">Elveelia Medspa</p>
+    <h1>Our Services</h1>
+    <p class="sub">Beauty and wellness experiences designed around you.</p>
+  </div>
+</section>
+
+<div class="container services-page-body">
+  <div class="services-grid">
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80" alt="Relaxing massage treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Massage</h3>
+        <p>Relax, release tension and enjoy a soothing massage experience designed for complete relaxation.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80" alt="Relaxing facial treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Facial</h3>
+        <p>Refresh and pamper your skin with a relaxing facial experience designed to leave you feeling renewed.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1696192410531-dc179772a0e8?auto=format&fit=crop&w=900&q=80" alt="Professional waxing service" />
+      </div>
+      <div class="service-body">
+        <h3>Waxing</h3>
+        <p>Enjoy smooth, professional waxing services in a comfortable and welcoming environment.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=900&q=80" alt="Relaxing pedicure treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Pedicure</h3>
+        <p>Treat your feet to a relaxing pedicure and beautifully finished nails.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=80" alt="Polished manicure treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Manicure</h3>
+        <p>Give your hands the care they deserve with a polished manicure experience.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?auto=format&fit=crop&w=900&q=80" alt="Beautifully styled lash treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Lashes</h3>
+        <p>Enhance your natural beauty with beautifully styled lashes.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=900&q=80" alt="Close-up of a laser skin treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Tattoo &amp; Scar Removal</h3>
+        <p>Remove unwanted tattoos and scars with our advanced laser treatment.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://images.unsplash.com/photo-1602722872368-0cfc00f748ff?auto=format&fit=crop&w=900&q=80" alt="Close-up of ear piercing jewelry" />
+      </div>
+      <div class="service-body">
+        <h3>Piercing</h3>
+        <p>Get your ears, nose, or other body parts pierced with our professional and sterile services.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://tse1.explicit.bing.net/th/id/OIP.0qfs-gWGq8Yny1bERKx0TgAAAA?r=0&pid=ImgDet&w=178&h=178&c=7&dpr=1.5&o=7&rm=3" alt="Relaxing body treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Body Sculpting</h3>
+        <p>Transform your body with our advanced body sculpting treatments.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+    <article class="service-card fade-in is-visible">
+      <div class="service-image">
+        <img src="https://tse1.explicit.bing.net/th/id/OIP.W2wTBB9Gk9rwBJOBd_bqSgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Precision brow treatment" />
+      </div>
+      <div class="service-body">
+        <h3>Microblading</h3>
+        <p>Create natural-looking eyebrows with our precision microblading technique.</p>
+        <a href="index.html#appointment" class="service-book">Book Now</a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<div class="pl-actions">
+  <a href="index.html#appointment" class="btn btn-primary">Book an Appointment</a>
+  <a href="index.html" class="btn btn-outline">Back to Home</a>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <p class="footer-brand">ELVEELIA MEDSPA</p>
+      <p class="footer-tagline">Beauty • Wellness • Self-Care</p>
+      <p>Aviation Road Adenta, Accra, Ghana<br />8:30 AM – 8:00 PM</p>
+   <li class="footer-social-item">
+  <!-- Phone icon -->
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+             19.79 19.79 0 0 1-8.63-3.07
+             19.5 19.5 0 0 1-6-6
+             19.79 19.79 0 0 1-3.07-8.67
+             A2 2 0 0 1 4.11 2h3
+             a2 2 0 0 1 2 1.72
+             12.84 12.84 0 0 0 .7 2.81
+             2 2 0 0 1-.45 2.11L8.09 9.91
+             a16 16 0 0 0 6 6l1.27-1.27
+             a2 2 0 0 1 2.11-.45
+             12.84 12.84 0 0 0 2.81.7
+             A2 2 0 0 1 22 16.92z"/>
+  </svg>
+
+  <a href="tel:0548179233">0548179233</a>
+</li>
+
+<li class="footer-social-item">
+  <!-- Mail icon -->
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="m3 7 9 6 9-6"/>
+  </svg>
+
+  <a href="mailto:Elveeliabeauty@gmail.com">
+    Elveeliabeauty@gmail.com
+  </a>
+</li>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="pricelist.html">Prices</a></li>
+        <li><a href="index.html#appointment">Book Appointment</a></li>
+      </ul>
+    </div>
+
+<div class="footer-col">
+  <h4>Social</h4>
+  <ul>
+    <li class="footer-social-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"/>
+      </svg>
+
+      <a href="https://www.instagram.com/elveelia_medspa/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Instagram: @elveelia_medspa
+      </a>
+    </li>
+
+    <li class="footer-social-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2">
+        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+      </svg>
+
+      <a href="https://www.tiktok.com/@elveelia_medspa"
+         target="_blank"
+         rel="noopener noreferrer">
+        TikTok: @elveelia_medspa
+      </a>
+    </li>
+  </ul>
+</div>
+
+  <div class="footer-bottom">&copy; 2026 Elveelia Medspa. All rights reserved.</div>
+</footer>
+
+<a href="#" id="whatsappFloat" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Book an appointment on WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor" aria-hidden="true">
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.31.638 4.472 1.745 6.32L4 29l7.86-1.703A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.75c-1.94 0-3.75-.556-5.28-1.51l-.379-.234-4.664 1.011 1.03-4.535-.248-.393A9.71 9.71 0 0 1 6.25 15c0-5.376 4.375-9.75 9.754-9.75 5.377 0 9.746 4.374 9.746 9.75 0 5.377-4.369 9.75-9.746 9.75Zm5.353-7.302c-.293-.147-1.734-.856-2.003-.954-.269-.098-.465-.147-.66.147-.196.294-.758.954-.929 1.15-.171.196-.343.22-.635.073-.293-.147-1.236-.456-2.354-1.454-.87-.776-1.457-1.735-1.629-2.028-.171-.294-.018-.453.129-.6.132-.132.293-.343.44-.514.147-.171.196-.294.294-.49.098-.196.049-.367-.024-.514-.073-.147-.66-1.591-.904-2.18-.238-.573-.48-.495-.66-.504-.171-.008-.367-.01-.562-.01-.196 0-.514.073-.783.367-.269.294-1.026 1.003-1.026 2.446 0 1.443 1.05 2.836 1.196 3.032.147.196 2.066 3.157 5.008 4.427.7.302 1.246.483 1.672.618.702.223 1.341.192 1.846.117.563-.084 1.734-.708 1.979-1.392.244-.685.244-1.271.171-1.393-.073-.122-.269-.196-.562-.343Z" />
+  </svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

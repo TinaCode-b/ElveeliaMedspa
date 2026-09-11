@@ -1,8 +1,3 @@
-/* ==========================================================================
-   ELVEELIA MEDSPA — STYLESHEET
-   Palette: warm ivory, blush rose, muted gold, deep espresso
-   Fonts: Fraunces (display/serif) + Manrope (body/sans)
-   ========================================================================== */
 
 :root {
   --ivory: #fbf6ef;
@@ -233,9 +228,9 @@ section {
 .logo {
   font-family: var(--font-display);
   line-height: 1.05;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   letter-spacing: 0.06em;
-  font-weight: 800;
+  font-weight: 600;
 }
 .logo span {
   display: block;
@@ -689,22 +684,28 @@ section {
 .gallery-item:hover .gallery-caption {
   opacity: 1;
 }
-.gallery-video {
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #000;
-  aspect-ratio: 9 / 16;
+
+.gallery-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(42, 34, 29, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.gallery-video video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+.lightbox video {
+  max-height: 85vh;
+  max-width: 90vw;
+  border-radius: 12px;
 }
-
-/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -865,93 +866,6 @@ section {
   font-size: 0.9rem;
   font-weight: 600;
   border-bottom: 1px solid rgba(42, 34, 29, 0.35);
-}
-/* =========================================
-   PRICE LIST QR CODE
-   ========================================= */
-
-.price-list-qr {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.price-list-qr h2 {
-    margin: 10px 0 12px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 500;
-    color: #211a17;
-}
-
-.price-list-qr p {
-    margin: 0 auto 24px;
-    max-width: 520px;
-    color: #665b55;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* QR card */
-.qr-card {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 22px;
-    background: #f5ede3;
-    border: 1px solid rgba(91, 63, 48, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(50, 35, 25, 0.06);
-}
-
-
-/* QR code */
-.qr-code {
-    width: 190px;
-    height: 190px;
-    display: block;
-}
-
-/* Small instruction */
-.qr-instruction {
-    margin-top: 14px !important;
-    margin-bottom: 0 !important;
-    font-size: 13px !important;
-    color: #806f65 !important;
-}
-
-/* Direct link */
-.price-list-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: #5b3f30;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid #5b3f30;
-    padding-bottom: 3px;
-    transition: opacity 0.2s ease;
-}
-
-.price-list-link:hover {
-    opacity: 0.65;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .price-list-qr {
-        padding: 60px 20px;
-    }
-
-    .qr-card {
-        padding: 18px;
-    }
-
-    .qr-code {
-        width: 160px;
-        height: 160px;
-    }
 }
 
 /* ==========================================================================
@@ -1115,11 +1029,11 @@ section {
 }
 .faq-answer {
   display: grid;
-  grid-template-rows: 0fr;
+  grid-template-rows: minmax(0, 0fr);
   transition: grid-template-rows 0.3s ease;
 }
 .faq-item.is-open .faq-answer {
-  grid-template-rows: 1fr;
+  grid-template-rows: minmax(0, 1fr);
 }
 .faq-answer-inner {
   overflow: hidden;
@@ -1211,8 +1125,75 @@ section {
 }
 
 /* ==========================================================================
-   RESPONSIVE
+   QR CODE / PRICE LIST SECTION
    ========================================================================== */
+.qr-section {
+  padding: 100px 0;
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.qr-video {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  aspect-ratio: 4 / 5;
+  background-color: var(--espresso);
+}
+.qr-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-content {
+  text-align: center;
+}
+
+.qr-card {
+  display: inline-block;
+  background-color: var(--ivory);
+  border: 1px solid rgba(42, 34, 29, 0.1);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  margin-top: 24px;
+}
+
+.qr-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  border: 8px solid var(--ivory);
+  outline: 1px solid rgba(42, 34, 29, 0.08);
+}
+
+.qr-caption {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--espresso-soft);
+}
+.qr-caption strong {
+  color: var(--espresso);
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .qr-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .qr-video {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1025px) {
   .nav-links {
     display: flex;
